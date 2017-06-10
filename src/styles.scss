@@ -1,0 +1,15 @@
+html, body {
+  display: flex;
+  height: 100vh;
+}
+
+app-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.splash-screen {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
