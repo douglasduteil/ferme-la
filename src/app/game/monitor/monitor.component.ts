@@ -24,20 +24,40 @@ export class MonitorComponent {
   public letter: string;
   public startingVideoId = 0;
   public endingVideoId = 0;
+  public isDirty = false;
+  public isEndvideo = false;
   public src = STARTING_VIDEO[this.startingVideoId];
 
   @HostListener("window:keyup", ["$event"])
   public keyEvent(event: KeyboardEvent) {
-    if (event.key === this.letter) {
-      this.src = END_VIDEO[this.endingVideoId];
-      this.endingVideoId = (this.endingVideoId + 1) % END_VIDEO.length;
-      this.videoRef.nativeElement.load();
+    if (event.key !== this.letter) {
+      return;
     }
+
+    if (this.isDirty) {
+      return;
+    }
+
+    this.isDirty = true;
+
+    const video: HTMLVideoElement = this.videoRef.nativeElement;
+    const qteTiem = video.duration - 1;
+
+    if (video.currentTime < qteTiem) {
+      return;
+    }
+
+    this.src = END_VIDEO[this.endingVideoId];
+    this.endingVideoId = (this.endingVideoId + 1) % END_VIDEO.length;
+    this.videoRef.nativeElement.load();
+    this.isEndvideo = true;
   }
 
   public onVideoEnd(event: HTMLVideoElementEventMap) {
     this.src = STARTING_VIDEO[this.startingVideoId];
     this.startingVideoId = (this.startingVideoId + 1) % STARTING_VIDEO.length;
     this.videoRef.nativeElement.load();
+    this.isDirty = false;
+    this.isEndvideo = false;
   }
 }
