@@ -5,11 +5,14 @@ const KEY_CODE = {
 };
 
 const STARTING_VIDEO = [
-  "assets/videos/skate_01.webm",
-  "assets/videos/skate_02.webm",
+  "assets/videos/paf_2A.webm",
+  "assets/videos/paf_1A.webm",
 ];
-const END_VIDEO = [
-  "assets/videos/skate_03.webm",
+const GOOD_END_VIDEO = [
+  "assets/videos/paf_1B.webm",
+];
+const BAD_END_VIDEO = [
+  "assets/videos/paf_2B.webm",
 ];
 
 @Component({
@@ -49,14 +52,22 @@ export class MonitorComponent {
       return;
     }
 
-    this.src = END_VIDEO[this.endingVideoId];
-    this.endingVideoId = (this.endingVideoId + 1) % END_VIDEO.length;
+    this.src = BAD_END_VIDEO[this.endingVideoId];
+    this.endingVideoId = (this.endingVideoId + 1) % BAD_END_VIDEO.length;
     this.videoRef.nativeElement.load();
     this.isEndvideo = true;
     this.message = "SUCCESS";
   }
 
   public onVideoEnd(event: HTMLVideoElementEventMap) {
+    if (!this.isEndvideo) {
+      this.src = GOOD_END_VIDEO[this.endingVideoId];
+      this.endingVideoId = (this.endingVideoId + 1) % GOOD_END_VIDEO.length;
+      this.videoRef.nativeElement.load();
+      this.isEndvideo = true;
+      return;
+    }
+
     this.src = STARTING_VIDEO[this.startingVideoId];
     this.startingVideoId = (this.startingVideoId + 1) % STARTING_VIDEO.length;
     this.videoRef.nativeElement.load();
