@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
 })
 export class StartMenuComponent {
 
-  private keysToStart = ["Enter", "Space"];
+  private keysToStart = ["Enter", " "];
   constructor(
     private router: Router,
   ) {}

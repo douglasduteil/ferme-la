@@ -26,6 +26,7 @@ export class MonitorComponent {
   public endingVideoId = 0;
   public isDirty = false;
   public isEndvideo = false;
+  public message = "...";
   public src = STARTING_VIDEO[this.startingVideoId];
 
   @HostListener("window:keyup", ["$event"])
@@ -44,6 +45,7 @@ export class MonitorComponent {
     const qteTiem = video.duration - 1;
 
     if (video.currentTime < qteTiem) {
+      this.message = "FAIL";
       return;
     }
 
@@ -51,6 +53,7 @@ export class MonitorComponent {
     this.endingVideoId = (this.endingVideoId + 1) % END_VIDEO.length;
     this.videoRef.nativeElement.load();
     this.isEndvideo = true;
+    this.message = "SUCCESS";
   }
 
   public onVideoEnd(event: HTMLVideoElementEventMap) {
@@ -59,5 +62,6 @@ export class MonitorComponent {
     this.videoRef.nativeElement.load();
     this.isDirty = false;
     this.isEndvideo = false;
+    this.message = "...";
   }
 }
