@@ -1,0 +1,30 @@
+:host {
+  display: flex;
+}
+
+.bg {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+
+  z-index: -1;
+}
+
+nav {
+  display: flex;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  padding: 15px 30px;
+
+}
