@@ -1,3 +1,16 @@
-<video autoplay loop muted>
-  <source src="assets/videos/skate_01.webm" >
-</video>
+<section>
+
+  <video
+  #videoRef
+
+  (ended)="onVideoEnd($event)"
+
+  autoplay
+  muted
+  >
+    <source [src]="src" >
+  </video>
+
+  <h1>{{ letter }}</h1>
+
+</section>
