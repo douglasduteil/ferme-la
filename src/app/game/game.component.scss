@@ -1,10 +1,21 @@
 :host {
   display: flex;
+  flex-direction: column;
+}
+
+header {
+  flex: 1;
+  text-align: center;
+}
+
+section {
+  flex: 5;
+  display: flex;
   flex-flow: row wrap;
 }
 
 paf-monitor {
   flex: 1;
   min-width: 33%;
-  height: 50vh;
+  height: 45vh;
 }

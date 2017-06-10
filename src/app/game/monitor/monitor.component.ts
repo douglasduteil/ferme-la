@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input, OnInit, ViewChild } from "@angular/core";
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from "@angular/core";
 
 const KEY_CODE = {
   A: 65,
@@ -25,6 +25,10 @@ export class MonitorComponent {
   public videoRef: ElementRef;
   @Input()
   public letter: string;
+
+  @Output()
+  public change = new EventEmitter();
+
   public startingVideoId = 0;
   public endingVideoId = 0;
   public isDirty = false;
@@ -56,6 +60,7 @@ export class MonitorComponent {
     this.endingVideoId = (this.endingVideoId + 1) % BAD_END_VIDEO.length;
     this.videoRef.nativeElement.load();
     this.isEndvideo = true;
+    this.change.emit();
     this.message = "SUCCESS";
   }
 

@@ -5,4 +5,10 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./game.component.scss"],
   templateUrl: "./game.component.html",
 })
-export class GameComponent  {}
+export class GameComponent  {
+  public score = 0;
+
+  public onChange(event) {
+    this.score++;
+  }
+}

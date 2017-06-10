@@ -1,19 +1,32 @@
-<paf-monitor
- letter="ArrowUp"
-></paf-monitor>
-<paf-monitor
- letter="ArrowDown"
-></paf-monitor>
-<paf-monitor
- letter="ArrowLeft"
-></paf-monitor>
+<header>
+  <h1>Score {{ score }}</h1>
+</header>
 
-<paf-monitor
- letter="ArrowRight"
-></paf-monitor>
-<paf-monitor
- letter=" "
-></paf-monitor>
-<!--<paf-monitor
- letter="a"
-></paf-monitor>-->
+<section>
+
+  <paf-monitor
+  letter="ArrowUp"
+  (change)="onChange($event)"
+  ></paf-monitor>
+  <paf-monitor
+  letter="ArrowDown"
+  (change)="onChange($event)"
+  ></paf-monitor>
+  <paf-monitor
+  letter="ArrowLeft"
+  (change)="onChange($event)"
+  ></paf-monitor>
+
+  <paf-monitor
+  letter="ArrowRight"
+  (change)="onChange($event)"
+  ></paf-monitor>
+  <paf-monitor
+  letter=" "
+  (change)="onChange($event)"
+  ></paf-monitor>
+  <!--<paf-monitor
+  letter="a"
+  ></paf-monitor>-->
+
+</section>
