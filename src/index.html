@@ -3,12 +3,32 @@
 <head>
   <meta charset="utf-8">
   <title>PAF l'humain</title>
-  <base href="/paflhumain/">
+  <script>document.write('<base href="' + document.location + '" />');</script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <link rel="stylesheet" href="normalize.css">
+  <style>
+
+  html, body {
+    display: flex;
+    height: 100vh;
+  }
+
+  app-root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .splash-screen {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  </style>
 </head>
 <body>
   <app-root>
