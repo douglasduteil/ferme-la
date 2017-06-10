@@ -7,13 +7,16 @@ import { Router } from "@angular/router";
   templateUrl: "./start-menu.component.html",
 })
 export class StartMenuComponent {
+
+  private keysToStart = ["Enter", "Space"];
   constructor(
     private router: Router,
   ) {}
 
   @HostListener("window:keyup", ["$event"])
   public keyEvent(event: KeyboardEvent) {
-    if (event.key === "Enter") {
+    console.log(event);
+    if (this.keysToStart.includes(event.key)) {
       this.router.navigate(["/game"]);
     }
   }
