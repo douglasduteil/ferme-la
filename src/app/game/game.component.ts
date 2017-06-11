@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 
-const GAME_DURATION = 1000 * 60; // 1 minute
-
+const GAME_DURATION = 1000 * 20;
 @Component({
   selector: "paf-game",
   styleUrls: ["./game.component.scss"],
