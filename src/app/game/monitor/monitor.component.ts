@@ -5,14 +5,13 @@ const KEY_CODE = {
 };
 
 const STARTING_VIDEO = [
-  "assets/videos/paf_2A.webm",
-  "assets/videos/paf_1A.webm",
+  "assets/videos/0.webm",
 ];
 const GOOD_END_VIDEO = [
-  "assets/videos/paf_1B.webm",
+  "assets/videos/0B.webm",
 ];
 const BAD_END_VIDEO = [
-  "assets/videos/paf_2B.webm",
+  "assets/videos/1.webm",
 ];
 let videoSpeed = 1;
 

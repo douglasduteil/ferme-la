@@ -1,6 +1,8 @@
 import { Component, HostListener, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 
+import { GameService } from "app/game.service";
+
 @Component({
   selector: "paf-end",
   styleUrls: ["./end.component.scss"],
@@ -9,6 +11,7 @@ import { Router } from "@angular/router";
 export class EndComponent {
   constructor(
     private router: Router,
+    public game: GameService,
   ) {}
   @HostListener("window:keyup", ["$event"])
   public keyEvent(event: KeyboardEvent) {

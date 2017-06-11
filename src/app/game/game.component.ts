@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 
+import { GameService } from "app/game.service";
+
 const GAME_DURATION = 1000 * 20;
 @Component({
   selector: "paf-game",
@@ -15,6 +17,7 @@ export class GameComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private game: GameService,
   ) {}
 
   public onChange(event) {
@@ -42,6 +45,7 @@ export class GameComponent implements OnInit {
   }
 
   public onGameTimerFinished() {
+    this.game.score = this.score;
     this.router.navigate(["/end"]);
   }
 }

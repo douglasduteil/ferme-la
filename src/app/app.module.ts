@@ -1,6 +1,8 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
+import { GameService } from "app/game.service";
+
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
@@ -15,6 +17,8 @@ import { AppComponent } from "./app.component";
     AppRoutingModule,
     BrowserModule,
   ],
-  providers: [],
+  providers: [
+    GameService,
+  ],
 })
 export class AppModule { }
