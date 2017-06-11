@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from "@angular/core";
+import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from "@angular/core";
 
 const KEY_CODE = {
   A: 65,
@@ -14,6 +14,7 @@ const GOOD_END_VIDEO = [
 const BAD_END_VIDEO = [
   "assets/videos/paf_2B.webm",
 ];
+let videoSpeed = 1;
 
 @Component({
   selector: "paf-monitor",
@@ -56,26 +57,31 @@ export class MonitorComponent {
       return;
     }
 
-    this.src = BAD_END_VIDEO[this.endingVideoId];
     this.endingVideoId = (this.endingVideoId + 1) % BAD_END_VIDEO.length;
-    this.videoRef.nativeElement.load();
+    this.src = BAD_END_VIDEO[this.endingVideoId];
+    video.load();
+    video.playbackRate = videoSpeed++;
     this.isEndvideo = true;
     this.change.emit();
     this.message = "SUCCESS";
   }
 
   public onVideoEnd(event: HTMLVideoElementEventMap) {
+
+    const video: HTMLVideoElement = this.videoRef.nativeElement;
     if (!this.isEndvideo) {
       this.src = GOOD_END_VIDEO[this.endingVideoId];
       this.endingVideoId = (this.endingVideoId + 1) % GOOD_END_VIDEO.length;
-      this.videoRef.nativeElement.load();
+      video.load();
+      video.playbackRate = videoSpeed;
       this.isEndvideo = true;
       return;
     }
 
     this.src = STARTING_VIDEO[this.startingVideoId];
     this.startingVideoId = (this.startingVideoId + 1) % STARTING_VIDEO.length;
-    this.videoRef.nativeElement.load();
+    video.load();
+    video.playbackRate = videoSpeed;
     this.isDirty = false;
     this.isEndvideo = false;
     this.message = "...";
