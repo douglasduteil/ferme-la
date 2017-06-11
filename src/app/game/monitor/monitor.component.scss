@@ -10,15 +10,14 @@ section {
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  overflow: hidden;
   flex: 1;
+  position: relative;
 }
 
 video {
   display: block;
   flex: 2;
-  height: 50%;
-  border: solid 1px;
+  height: 22vh;
   width: 100%;
   margin: auto;
 }
@@ -27,4 +26,18 @@ p {
   flex: 1;
   text-align: center;
   white-space: nowrap;
+}
+
+$size: 15px;
+
+.indicators {
+  display: flex;
+  position: absolute;
+  bottom: -65px;
+  left: calc(50%);
+}
+
+.indicator {
+  width: $size;
+  height: $size;
 }

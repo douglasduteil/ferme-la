@@ -86,4 +86,8 @@ export class MonitorComponent {
     this.isEndvideo = false;
     this.message = "...";
   }
+
+  public onCanPlay($event) {
+    console.log("onCanPlay", $event);
+  }
 }

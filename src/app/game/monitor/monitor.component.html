@@ -11,9 +11,8 @@
     <source [src]="src" >
   </video>
 
-  <p>
-    press : "{{ letter }}"
-    <br>
-    {{ message }}
-  </p>
+  <div class="indicators">
+    <img [hidden]="message !== 'FAIL'" class="indicator" src="/assets/greenlight.jpg" alt="">
+    <img [hidden]="message !== 'SUCCESS'"  class="indicator" src="/assets/redlight.jpg" alt="">
+  </div>
 </section>

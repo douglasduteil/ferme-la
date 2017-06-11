@@ -1,6 +1,8 @@
 <header>
+<!--
   <h1>Score {{ score }}</h1>
   <h1>Duration {{ duration }}</h1>
+-->
 </header>
 
 <section>
@@ -9,10 +11,12 @@
   letter="ArrowLeft"
   (change)="onChange($event)"
   ></paf-monitor>
+
   <paf-monitor
   letter=" "
   (change)="onChange($event)"
   ></paf-monitor>
+
   <paf-monitor
   letter="ArrowRight"
   (change)="onChange($event)"
@@ -22,6 +26,7 @@
   letter="ArrowDown"
   (change)="onChange($event)"
   ></paf-monitor>
+
   <paf-monitor
   letter="ArrowUp"
   (change)="onChange($event)"
