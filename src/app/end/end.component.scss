@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 2em;
+  // align-content: space-between;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  padding: 15px 30px;
+  font-weight: bold;
+}
+
+.primary {
+  $primary-color: red;
+  background-color: $primary-color;
+  border-color: $primary-color;
+}

@@ -5,6 +5,7 @@ const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "start-menu"},
   { path: "start-menu", loadChildren: "app/start-menu/start-menu.module#StartMenuModule" },
   { path: "game", loadChildren: "app/game/game.module#GameModule" },
+  { path: "end", loadChildren: "app/end/end.module#EndModule" },
 ];
 
 @NgModule({
