@@ -11,6 +11,7 @@ export class GameComponent implements OnInit {
   public score = 0;
   public rawDuration = GAME_DURATION;
   public duration = "";
+  public percentTime = "100%";
 
   constructor(
     private router: Router,
@@ -35,12 +36,12 @@ export class GameComponent implements OnInit {
       lastDuration = now;
 
       this.rawDuration -= frameDuration;
-      this.duration = (this.rawDuration / 1000).toFixed(0);
+      this.percentTime = ((this.rawDuration / GAME_DURATION) * 100) + "%";
     };
     setTimeout(() => requestAnimationFrame(gameComponentAnimationFrame), 0);
   }
 
   public onGameTimerFinished() {
-    // this.router.navigate(["/end"]);
+    this.router.navigate(["/end"]);
   }
 }
