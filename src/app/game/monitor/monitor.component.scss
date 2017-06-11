@@ -17,10 +17,12 @@ section {
 video {
   display: block;
   flex: 2;
-  height: 22vh;
+  height: 100%;
   width: 100%;
   margin: auto;
 }
+
+.error
 
 p {
   flex: 1;
@@ -33,7 +35,7 @@ $size: 15px;
 .indicators {
   display: flex;
   position: absolute;
-  bottom: -65px;
+  bottom: -25px;
   left: calc(50%);
 }
 

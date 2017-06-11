@@ -41,6 +41,6 @@ export class GameComponent implements OnInit {
   }
 
   public onGameTimerFinished() {
-    this.router.navigate(["/end"]);
+    // this.router.navigate(["/end"]);
   }
 }

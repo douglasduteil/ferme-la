@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from "@angular/core";
 
 const KEY_CODE = {
   A: 65,
@@ -21,7 +21,7 @@ let videoSpeed = 1;
   styleUrls: ["./monitor.component.scss"],
   templateUrl: "./monitor.component.html",
 })
-export class MonitorComponent {
+export class MonitorComponent implements AfterViewInit {
   @ViewChild("videoRef")
   public videoRef: ElementRef;
   @Input()
@@ -36,6 +36,13 @@ export class MonitorComponent {
   public isEndvideo = false;
   public message = "...";
   public src = STARTING_VIDEO[this.startingVideoId];
+
+  public ngAfterViewInit() {
+    const video: HTMLVideoElement = this.videoRef.nativeElement;
+    setTimeout(() => {
+      video.play();
+    }, Math.random() * 5000);
+  }
 
   @HostListener("window:keyup", ["$event"])
   public keyEvent(event: KeyboardEvent) {
@@ -64,6 +71,7 @@ export class MonitorComponent {
     this.isEndvideo = true;
     this.change.emit();
     this.message = "SUCCESS";
+    setTimeout(() => {  video.play(); });
   }
 
   public onVideoEnd(event: HTMLVideoElementEventMap) {
@@ -74,6 +82,8 @@ export class MonitorComponent {
       this.endingVideoId = (this.endingVideoId + 1) % GOOD_END_VIDEO.length;
       video.load();
       video.playbackRate = videoSpeed;
+
+      setTimeout(() => {  video.play(); });
       this.isEndvideo = true;
       return;
     }
@@ -85,6 +95,10 @@ export class MonitorComponent {
     this.isDirty = false;
     this.isEndvideo = false;
     this.message = "...";
+
+    setTimeout(() => {
+      video.play();
+    }, Math.random() * 5000);
   }
 
   public onCanPlay($event) {
