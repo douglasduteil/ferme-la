@@ -96,6 +96,8 @@ export class MonitorComponent implements AfterViewInit {
     video = this.getCurrentRunningVideo();
     video.classList.remove('visible');
 
+    this.message = "...";
+
     const nextVictim = () => {
       this.switchVideo(STARTING_VIDEO[this.startingVideoId]);
       this.startingVideoId = (this.startingVideoId + 1) % STARTING_VIDEO.length;
@@ -103,7 +105,6 @@ export class MonitorComponent implements AfterViewInit {
       video.playbackRate = videoSpeed;
       this.isDirty = false;
       this.isEndvideo = false;
-      this.message = "...";
     }
 
     setTimeout(nextVictim, 3000 + (Math.random() * 5000));
