@@ -72,6 +72,7 @@ export class MonitorComponent implements AfterViewInit {
       return;
     }
 
+    video.pause();
     this.endingVideoId = (this.endingVideoId + 1) % BAD_END_VIDEO.length;
     this.switchVideo(BAD_END_VIDEO[this.endingVideoId]);
     this.isEndvideo = true;
