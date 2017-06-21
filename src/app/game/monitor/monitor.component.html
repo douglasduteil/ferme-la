@@ -1,17 +1,24 @@
 <section>
 
   <video
-  #videoRef
+  #videoBuffer1Ref
 
   (ended)="onVideoEnd($event)"
   poster="assets/bg.jpg"
   muted
   >
-    <source [src]="src" >
+  </video>
+  <video
+  #videoBuffer2Ref
+
+  (ended)="onVideoEnd($event)"
+  poster="assets/bg.jpg"
+  muted
+  >
   </video>
 
   <div class="indicators">
-    <img [hidden]="message !== 'FAIL'" class="indicator" src="assets/greenlight.jpg" alt="">
-    <img [hidden]="message !== 'SUCCESS'"  class="indicator" src="assets/redlight.jpg" alt="">
+    <img [hidden]="message !== 'SUCCESS'" class="indicator" src="assets/greenlight.jpg" alt="">
+    <img [hidden]="message !== 'FAIL'"  class="indicator" src="assets/redlight.jpg" alt="">
   </div>
 </section>

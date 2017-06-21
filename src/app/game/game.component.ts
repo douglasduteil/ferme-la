@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 
 import { GameService } from "app/game.service";
 
-const GAME_DURATION = 1000 * 20;
+const GAME_DURATION = 1000 * 30;
 @Component({
   selector: "paf-game",
   styleUrls: ["./game.component.scss"],
